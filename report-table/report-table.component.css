@@ -1,0 +1,94 @@
+
+
+
+  .icon-up::after, .icon-down::after {
+    font-size: 12px; /* 调整大小 */
+    color: #333; /* 谡调颜色 */
+    margin-left: 4px; /* 添加一些间隙 */
+  }
+  
+
+  .icon-up::after {
+    content: '\f062'; /* Font Awesome 箭头向上图标 */
+  }
+  
+  .icon-down::after {
+    content: '\f063'; /* Font Awesome 箭头向下图标 */
+  }
+
+  th {
+    cursor: pointer; /* 将光标更改为指针，指示可点击 */
+    transition: background-color 0.3s; /* 平滑过渡效果 */
+  }
+  
+  th:hover {
+    background-color: #f0f0f0; /* 鼠标悬停时的背景色 */
+  }
+
+  .icon-up::after {
+    content: '↑'; 
+    color: blue;
+  }
+  
+  .icon-down::after {
+    content: '↓';
+    color: blue;
+  }
+  
+  .icon-default::after {
+    content: ''; /* 默认状态不显示图标 */
+  }
+
+  .table-hover tbody tr:hover {
+    background-color: #f5f5f5;
+  }
+  .table th, .table td {
+    text-align: left;
+    padding: 8px;
+  }
+  .error-message {
+    color: red;
+  }
+  
+
+  .table button {
+    padding: 6px 12px;
+    margin-right: 5px;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+  }
+  
+  .button-edit {
+    background-color: #007bff;
+    color: white;
+  }
+  
+  .button-detail {
+    background-color: #6c757d;
+    color: white;
+  }
+  
+  .button-status {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .button-delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .table button:hover {
+    opacity: 0.8;
+  }
+  
+  .centered-content {
+    text-align: center;
+  }
+  
+  .centered-table {
+    margin: auto;
+    width: 80%; 
+  }
+  

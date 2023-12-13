@@ -1,0 +1,42 @@
+
+<br>
+<div class="flex-center">
+<button *ngIf="!showForm" class="small-button" (click)="toggleFormDisplay()">Create Report</button>
+</div>
+
+<div *ngIf="showForm">
+<form (submit)="createReport()" #reportForm="ngForm">
+  <!-- Reporting Person’s Info -->
+  <input type="text" [(ngModel)]="newReport.reporterName" name="reporterName" placeholder="Reporter's Name" required>
+  <div *ngIf="!newReport.reporterName" class="error-message">Reporter's name is required.</div>
+
+  <input type="tel" [(ngModel)]="newReport.reporterPhone" name="reporterPhone" placeholder="Reporter's Phone" required>
+  <div *ngIf="!newReport.reporterPhone" class="error-message">Reporter's phone is required.</div>
+  
+  <!-- Troublemaker Info -->
+  <input type="text" [(ngModel)]="newReport.troublemakerName" name="troublemakerName" placeholder="Troublemaker's Name" required>
+  <div *ngIf="!newReport.troublemakerName" class="error-message">Troublemaker's name is required.</div>
+  
+  <!-- Location -->
+  <select [(ngModel)]="selectedLocation" name="selectedLocation" >
+    <option value="" disabled selected>Select a location</option>
+    <option *ngFor="let location of locations" [value]="location">{{ location }}</option>
+  </select>
+  <p>or</p>
+  <input type="text" [(ngModel)]="newLocation" name="newLocation" placeholder="Add New Location" >
+
+  <input type="text" [(ngModel)]="newReport.longitude" name="longitude" placeholder="Longitude" required>
+  <div *ngIf="!newReport.longitude" class="error-message">Longitude is required.</div>
+  <input type="text" [(ngModel)]="newReport.latitude" name="latitude" placeholder="Latitude" required>
+  <div *ngIf="!newReport.latitude" class="error-message">Latitude is required.</div>
+  
+  <!-- Picture Link -->
+  <input type="url" [(ngModel)]="newReport.pictureUrl" name="pictureUrl" placeholder="Picture URL">
+  
+  <!-- Extra Info -->
+  <textarea [(ngModel)]="newReport.extraInfo" name="extraInfo" placeholder="Extra Info"></textarea>
+
+  <button type="submit" [disabled]="!reportForm.valid">Create Report</button>
+</form>
+
+</div>

@@ -1,0 +1,51 @@
+
+  form {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  input, select, textarea, button {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    box-sizing: border-box;
+  }
+  .error-message {
+    color: red;
+    margin: 5px 0;
+  }
+  button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    cursor: pointer;
+  }
+  button:hover {
+    background-color: #0056b3;
+  }
+
+  .small-button {
+
+    padding: 5px 10px; /* 减少内边距 */
+    border: 1px solid #007bff; /* 设置边框，可以根据需要调整 */
+    border-radius: 4px; /* 轻微的圆角 */
+    background-color: #007bff; /* 按钮背景颜色 */
+    color: white; /* 字体颜色 */
+    cursor: pointer; /* 鼠标悬停时显示指针 */
+    transition: background-color 0.3s; /* 平滑颜色过渡效果 */
+    width: 20%;
+  }
+  
+  .small-button:hover {
+    background-color: #0056b3; /* 鼠标悬停时的背景颜色 */
+  }
+  
+
+  .flex-center {
+    display: flex;
+    justify-content: center;
+  }
+  

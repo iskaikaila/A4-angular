@@ -1,0 +1,39 @@
+
+<h4 style="text-align: center">Nuisance Reporting Data Sheet</h4>
+<h3 style="text-align: center">(Click on each column header to sort)</h3>
+<table class="table table-hover"  class="table table-hover centered-table">
+  <thead>
+    <tr>
+      <th (click)="sortReports('troublemakerName')">
+        Troublemaker Name
+        <span [class]="getSortIcon('troublemakerName')"></span>
+      </th>
+      <th (click)="sortReports('location')">
+        Location
+        <span [class]="getSortIcon('location')"></span>
+      </th>
+      <th (click)="sortReports('timeDate')">
+        Time Reported
+        <span [class]="getSortIcon('timeDate')"></span>
+      </th>
+      <th (click)="sortReports('status')">
+        Status
+        <span [class]="getSortIcon('status')"></span>
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let report of reports">
+      <td>{{ report.troublemakerName }}</td>
+      <td>{{ report.location }}</td>
+      <td>{{ report.timeDate | date:'short' }}</td>
+      <td>{{ report.status }}</td>
+      <td>
+        <button (click)="requestEdit(report)">Edit</button>
+        <button (click)="requestDetail(report)">Details</button>
+        <button (click)="changeStatus(report)">Change Status</button>
+        <button (click)="deleteReport(report )">Delete</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
