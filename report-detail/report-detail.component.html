@@ -1,0 +1,18 @@
+<div *ngIf="report" class="report-details">
+  <h2>Report Details</h2>
+  <div class="content-container">
+    <p><strong></strong> <img src="{{ report.pictureUrl }}" alt="baddies" class="content-image"></p>
+
+    <div class="content-text">
+      <p><strong>Reporter Name:</strong> {{ report.reporterName }}</p>
+      <p><strong>Reporter Phone:</strong> {{ report.reporterPhone }}</p>
+      <p><strong>Troublemaker Name:</strong> {{ report.troublemakerName }}</p>
+      <p><strong>Location:</strong> {{ report.location }}</p>
+      <p><strong>Longitude:</strong> {{ report.longitude }}</p>
+      <p><strong>Latitude:</strong> {{ report.latitude }}</p>
+      <p><strong>Extra Info:</strong> {{ report.extraInfo }}</p>
+      <p><strong>Time/Date:</strong> {{ report.timeDate | date:'medium' }}</p>
+      <p><strong>Status:</strong> {{ report.status }}</p>
+    </div>
+  </div>
+</div>
