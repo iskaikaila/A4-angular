@@ -1,10 +1,12 @@
 <h1>WELCOME NCT-APP !</h1>
+<!-- 引入 Bootstrap CSS 文件，用于页面的样式设计 -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
-<!-- app.component.html -->
+
+<!-- app-map 组件，显示地图和相关报告 -->
 <app-map [reports]="reports"></app-map>
 <br>
 
-
+<!-- app-report-table 组件，显示报告列表，并处理编辑、详情查看、状态更改和删除报告的事件 -->
 <app-report-table 
   [reports]="reports" 
   (editRequested)="selectReportForEdit($event)" 
@@ -13,29 +15,26 @@
   (reportDeleted)="handleReportDeletion($event)">
 </app-report-table>
 
-
-
+<!-- app-report-detail 组件，当选择了报告且不在编辑模式时显示报告详情 -->
 <app-report-detail 
   *ngIf="selectedReport && !editMode" 
   [report]="selectedReport">
 </app-report-detail>
 
+<!-- app-report-form 组件，用于添加新的地点和创建新报告 -->
 <app-report-form 
   (newLocationAdded)="addLocation($event)"
   (reportCreated)="addReport($event)">
 </app-report-form>
 
+<!-- app-report-edit 组件，当选择了报告且处于编辑模式时，用于编辑报告和添加新地点 -->
 <app-report-edit 
   *ngIf="selectedReport && editMode" 
   [report]="selectedReport"
   [locations]="locations"
   (reportUpdated)="updateReport($event)"
-
-  (newLocationAdded)="addLocation($event)"
->
+  (newLocationAdded)="addLocation($event)">
 </app-report-edit>
-
-
 
 
 
