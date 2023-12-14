@@ -6,6 +6,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
   templateUrl: './report-table.component.html', // 组件的 HTML 模板文件路径
   styleUrls: ['./report-table.component.css'] // 组件的样式文件路径
 })
+
+  
 export class ReportTableComponent {
   @Input() reports!: any[]; // 输入属性，用于从父组件接收报告数据
   @Output() editRequested = new EventEmitter<any>(); // 用于向父组件发送编辑请求的事件发射器
