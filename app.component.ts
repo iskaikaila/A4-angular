@@ -16,7 +16,10 @@ export class AppComponent implements OnInit {
   title = 'httpMod';
   i = new Date().getTime()
   constructor(private http: HttpClient){}
+
+  // 在组件初始化时获取报告数据
   ngOnInit(): void {
+    // 处理响应数据
     this.http.get<any[]>('https://272.selfip.net/apps/Erd97XR9Zp/collections/reports/documents/')
       .subscribe((response) => {
         this.reports = response.map(item => {
@@ -52,19 +55,21 @@ export class AppComponent implements OnInit {
   //   throw new Error('Method not implemented.');
   // }
   
-  reports: any[] = [];
-  selectedReport: any = null;
-  editMode: boolean = false;
+  reports: any[] = []; // 报告数组
+  selectedReport: any = null; // 当前选中的报告
+  editMode: boolean = false; // 编辑模式标志
 
   validPasswordHash = 'fcab0453879a2b2281bc5073e3f5fe54'; // MD5 hash of "BaggyJeans"
 
   locations: string[] = ['Location 1', 'Location 2']; // 位置列表
+   // 添加新位置的方法
   addLocation(newLocation: string) {
     if (newLocation && !this.locations.includes(newLocation)) {
       this.locations.push(newLocation);
     }
   }
 
+  // 添加新报告的方法
   addReport(newReport: any) {
 
     const currentTime = new Date(); // 获取当前时间
@@ -85,17 +90,19 @@ export class AppComponent implements OnInit {
     console.log('Updated reports array:', this.reports);
   }
   
-
+// 选择查看报告详情的方法
   selectReportForDetail(report: any) {
     this.selectedReport = report;
     this.editMode = false;
   }
 
+  // 选择编辑报告的方法
   selectReportForEdit(report: any) {
     this.selectedReport = { ...report };
     this.editMode = true;
   }
 
+  // 更新报告的方法
   updateReport(updatedReport: any) {
     const index = this.reports.findIndex(r => r.id === updatedReport.id);
     if (index > -1) {
@@ -112,6 +119,7 @@ export class AppComponent implements OnInit {
 
   }
 
+     // 更改报告状态的方法
   changeReportStatus(report: any) {
     console.log('key is ', report.key)
     const password = prompt('Enter password to change status:');
@@ -147,7 +155,8 @@ export class AppComponent implements OnInit {
       });
   }
   
-  
+
+    // 删除报告的方法
   handleReportDeletion(report: any) {
     console.log('key is ', report.key)
     console.log('Initiating report deletion process...');
